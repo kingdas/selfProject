@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.Userdao">
+	<insert id="add" parameterType="dao.User">
+		insert into user4
+		(id,name,groupid)values(#{id},#{name},#{groupid})
+	</insert>
+	<update id="update" parameterType="dao.User">
+		update user4 set name =
+		#{name} , groupid = #{groupid} where id = #{id}
+	</update>
+	<delete id="delete" parameterType="int">
+		delete from user4 where id =
+		#{id}
+	</delete>
+	<select id="findById" parameterType="int" resultType="dao.User">
+		select *
+		from user4 where id = #{id}
+	</select>
+	<select id="findAll" resultMap="userMap">
+		select u.*, g.id gid, g.groupname
+		from user4 u, group1 g where u.groupid = g.id
+	</select>
+	<resultMap type="dao.User" id="userMap">
+		<result property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="groupid" column="groupid" />
+		<association property="group" javaType="group.Group">
+			<result property="id" column="gid" />
+			<result property="groupname" column="groupname" />
+		</association>
+	</resultMap>
+</mapper>

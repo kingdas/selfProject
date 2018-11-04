@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function showTime(clock) {
+		var now = new Date()
+		var hour = now.getHours()
+		var minu = now.getMinutes()
+		var sec = now.getSeconds()
+		var time = hour + "时" + minu + "分" + sec + "秒"
+		clock.innerHTML = "当前时间" + time
+		window.onload = function() {
+			window.setInterval("showTime(clock)", 1000)
+		}
+	}
+</script>
+</head>
+<body>
+	<div id="clock"></div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ssm.dao.Userdao">
+	<insert id="add" parameterType="ssm.user.User">
+		insert into
+		user5(operator_id,name,password,status)values(#{operator_id},#{name},#{password},#{status})
+	</insert>
+	<delete id="delete" parameterType="int">
+		delete from user5 where
+		operator_id = #{operator_id}
+	</delete>
+	<update id="update" parameterType="ssm.user.User">
+		update user5 set name =
+		#{name},password = #{password},status = #{status}
+		where operator_id =
+		#{operator_id}
+	</update>
+	<select id="findById" parameterType="int"
+		resultType="ssm.user.User">
+		select * from user5 where operator_id = #{operator_id}
+	</select>
+	<select id="findAll" resultType="ssm.user.User">
+		select * from user5
+	</select>
+	<select id="findByCondition" parameterType="ssm.user.UserQuery"
+		resultType="ssm.user.User">
+		select * from user5 where 1=1
+		<if test="status==null">
+			and name = #{name}
+		</if>
+		<if test="status!=null">
+			<if test="name!=null">and name like concat(concat('%',#{name}),'%')</if>
+			<if test="status!=-1">and status = #{status}</if>
+		</if>
+	</select>
+</mapper>

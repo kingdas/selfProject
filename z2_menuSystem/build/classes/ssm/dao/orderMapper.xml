@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ssm.dao.OrderDao">
+	<insert id="add" parameterType="ssm.model.OrderModel">
+		<if test="id==null">insert into order (menuId,menuKind,num)values
+			(#{menuId},#{menuKind},#{num})
+		</if>
+		<if test="id!=null">insert into order (id,menuId,menuKind,num)values(
+			#{id},#{menuId},#{menuKind},#{num})
+		</if>
+	</insert>
+	<delete id="delete" parameterType="int">
+		delete from order where id =
+		#{id}
+	</delete>
+	<select id="findAll" resultType="ssm.model.OrderModel">
+		select * from order
+	</select>
+</mapper>
