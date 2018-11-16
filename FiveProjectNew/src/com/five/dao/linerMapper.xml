@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.five.dao.LinerDao">
+	<insert id="add" parameterType="com.five.model.SysWorkLiner">
+		<if test="linerId!=null">insert into sysworkliner
+			(LinerId,LinerName,LinerAdmin,ShopId)values(#{linerId},#{linerName},#{linerAdmin},#{shopId})
+		</if>
+		<if test="linerId==null">insert into sysworkliner
+			(LinerName,LinerAdmin,ShopId)values(#{linerName},#{linerAdmin},#{shopId})
+		</if>
+	</insert>
+
+	<delete id="delete" parameterType="int">
+		delete from sysworkliner where
+		LinerId = #{linerId}
+	</delete>
+
+	<update id="update"
+		parameterType="com.five.model.SysWorkLiner">
+		update sysworkliner set
+		LinerName=#{linerName},LinerAdmin=#{linerAdmin },ShopId=#{shopId }
+		where LinerId=#{linerId }
+	</update>
+
+	<select id="findById" parameterType="int"
+		resultType="com.five.model.SysWorkLiner">
+		select * from sysworkliner where LinerId = #{linerId};
+	</select>
+
+	<select id="findByCondition"
+		resultType="com.five.model.SysWorkLiner">
+		select * from sysworkliner
+		<where>
+			<if test="shopId!=-1"> and ShopId = #{shopId}</if>
+			<if test="linerName!=''"> and LinerName = #{linerName}</if>
+			<if test="linerAdmin!=''"> and LinerAdmin like concat('%',#{linerAdmin},'%')
+			</if>
+		</where>
+	</select>
+
+	<select id="findRowsCount" resultType="int">
+		select count(LinerId) from
+		sysworkliner
+	</select>
+
+	<select id="findAll"
+		resultType="com.five.model.SysWorkLiner">
+		select * from
+		sysworkliner limit #{startRow},#{limitNo}
+	</select>
+</mapper>

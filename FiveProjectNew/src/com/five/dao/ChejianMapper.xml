@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.five.dao.ChejianDao">
+	<insert id="add" parameterType="com.five.model.ChejianModel">
+	<if test="shopId==null">
+		insert into sysworkshop
+		(shopName,shopAdmin)values(#{shopName},#{shopAdmin});
+		</if>
+		<if test="shopId!=null">
+		insert into sysworkshop
+		(shopId,shopName,shopAdmin)values(#{shopId},#{shopName},#{shopAdmin});
+		</if>
+	</insert>
+
+
+	<delete id="del" parameterType="int">
+		delete from sysworkshop where shopId=#{shopId};
+	</delete>
+
+	<update id="update" parameterType="com.five.model.ChejianModel">
+		update sysworkshop set shopId=
+		#{shopId},shopName=#{shopName},shopAdmin=#{shopAdmin}
+		where shopId=#{shopId};
+	</update>
+
+	<select id="findById" parameterType="int"
+		resultType="com.five.model.ChejianModel">
+		select * from sysworkshop where shopId=#{shopId};
+	</select>
+
+
+	<select id="findAll" resultType="com.five.model.ChejianModel">
+		 select *from sysworkshop order by shopId limit #{offset},#{limit};
+	</select>
+	
+	<select id="findShopId" resultType="com.five.model.ChejianModel">
+		 select shopId from sysworkshop ;
+	</select>
+
+	<select id="findByCondiction" parameterType="com.five.model.ChejianQuary"
+		resultType="com.five.model.ChejianModel">
+		select * from  sysworkshop where 1=1 
+		<if test="shopName==null">
+			<if test="shopAdmin!=null">and shopAdmin like '%${shopAdmin}%'</if>
+			<if test="shopAdmin==null"></if>
+		</if>
+		<if test="shopName!=null">
+			<if test="shopAdmin!=null"> and shopAdmin like '%${shopAdmin}%' and  shopName like
+				'%${shopName}%'</if>
+			<if test="shopAdmin==null"> and shopName like '%${shopName}%'</if>
+		</if>
+
+	</select>
+
+</mapper>

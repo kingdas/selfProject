@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.five.dao.GroupDao">
+
+	<select id="findAll" resultType="com.five.model.GroupModel">
+		select * from groups
+	</select>
+
+	<select id="findByConditons" parameterType="com.five.model.GroupQueryModel"  resultType="com.five.model.GroupModel">
+		select * from groups where 1=1
+		<if test="describeGroup!=null"> and describeGroup like concat(concat('%',#{describeGroup}),'%')
+		</if>
+		<if test="groupName!=null"> and groupName like concat(concat('%',#{groupName}),'%')
+		</if>
+	</select>
+
+	<insert id="add" parameterType="com.five.model.GroupModel">
+		insert into groups(groupName,describeGroup)values(#{groupName},#{describeGroup})
+	</insert>
+	
+	<delete id="del" >
+	delete from groups where groupId=#{groupId}
+	</delete>
+	
+	<update id="upd" parameterType="com.five.model.GroupModel">
+	update groups set groupName=#{groupName},describeGroup=#{describeGroup} where groupId=#{groupId}
+	</update>
+	
+	<select id="findById" resultType="com.five.model.GroupModel">
+	select * from groups where groupId=#{groupId}
+	</select>
+	
+</mapper>
