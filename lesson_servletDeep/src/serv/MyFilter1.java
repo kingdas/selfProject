@@ -13,8 +13,8 @@ import javax.servlet.annotation.WebFilter;
 @WebFilter("/ms1") // 表示只过滤servletMyServlet1
 public class MyFilter1 implements Filter {
 
-	public void destroy() {
-		System.out.println("MyFilter2");// 伴随着服务器关闭而调用
+	public void init(FilterConfig fConfig) throws ServletException {
+		System.out.println("MyFilter1");// 伴随着服务器启动而调用
 	}
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
@@ -27,8 +27,8 @@ public class MyFilter1 implements Filter {
 		System.out.println("!!!");
 	}
 
-	public void init(FilterConfig fConfig) throws ServletException {
-		System.out.println("MyFilter1");// 伴随着服务器启动而调用
+	public void destroy() {
+		System.out.println("MyFilter2");// 伴随着服务器关闭而调用
 	}
 
 }

@@ -15,8 +15,6 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-import sun.misc.FpUtils;
-
 @WebServlet("/uploads")
 public class Uploads extends HttpServlet {
 
