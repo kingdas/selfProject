@@ -74,8 +74,6 @@
 </head>
 <body>
 
-
-
 	<div align="center" style="margin-top: 20px">
 		<form action="${pageContext.request.contextPath}/test/findByCondition">
 			角色名称：<input type="text" name="name"> 

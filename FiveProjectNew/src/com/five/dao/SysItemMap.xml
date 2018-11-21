@@ -8,37 +8,43 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from sysItem
 	</select>
 
-	<select id="findByConditons" parameterType="com.five.model.SysItemQueryModel" 
-resultType="com.five.model.SysItemModel">
+	<select id="findByConditons"
+		parameterType="com.five.model.SysItemQueryModel"
+		resultType="com.five.model.SysItemModel">
 		select * from sysItem where 1=1
 		<!-- 产品编码 -->
 		<if test="itemCode!=null"> and itemCode like concat(concat('%',#{itemCode}),'%')
 		</if>
 		<!-- 产品描述 -->
-		<if test="description!=null"> and description like concat(concat('%',#{description}),'%')
+		<if test="description!=null"> and description like
+			concat(concat('%',#{description}),'%')
 		</if>
 		<!-- 来源 -->
-		<if test="crustSource!=null"> and crustSource like concat(concat('%',#{crustSource}),'%')
+		<if test="crustSource!=null"> and crustSource like
+			concat(concat('%',#{crustSource}),'%')
 		</if>
 	</select>
 
 	<insert id="add" parameterType="com.five.model.SysItemModel">
-		insert into sysItem(itemCode,description,crustSource,program,oem,carModel,component,hideRatio,scrap)values
+		insert into
+		sysItem(itemCode,description,crustSource,program,oem,carModel,component,hideRatio,scrap)values
 		(#{itemCode},#{description},#{crustSource},#{program},#{oem},#{carModel},#{component},#{hideRatio},#{scrap})
 	</insert>
-	
-	<delete id="del" >
-	delete from sysItem where itemId=#{itemId}
+
+	<delete id="del">
+		delete from sysItem where itemId=#{itemId}
 	</delete>
-	
+
 	<update id="upd" parameterType="com.five.model.SysItemModel">
-	update sysItem set itemCode=#{itemCode},description=#{description},crustSource=#{crustSource},
-	program=#{program},oem=#{oem},carModel=#{carModel},component=#{component},
-	hideRatio=#{hideRatio},scrap=#{scrap} where itemId=#{itemId}
+		update sysItem set
+		itemCode=#{itemCode},description=#{description},crustSource=#{crustSource},
+		program=#{program},oem=#{oem},carModel=#{carModel},component=#{component},
+		hideRatio=#{hideRatio},scrap=#{scrap} where itemId=#{itemId}
 	</update>
-	
+
 	<select id="findById" resultType="com.five.model.SysItemModel">
-	select * from sysItem where itemId=#{itemId}
+		select * from sysItem where
+		itemId=#{itemId}
 	</select>
-	
+
 </mapper>

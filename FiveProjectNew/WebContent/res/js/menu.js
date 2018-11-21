@@ -1,4 +1,4 @@
-  var head="http://localhost:8080/FiveProject/";
+ var head="http://localhost:8080/FiveProject/";
  $(document).ready(function() { 
 		// 用户组管理 
 $("#yonghuzu").click(function(){
@@ -14,15 +14,13 @@ $("#yonghuzu").click(function(){
 	  });
 	$("#chanpingmanger").click(function(){ 
 		 $("#mainpage").html("<iframe src='"+head+"/cont2/findAll' width='100%' height='650px' style='border:0px;' ></iframe>");
-	 
 	  });
 	 });
 	 
-		 function showmenu(a) {
-
+function showmenu(a) {
 				if (document.getElementById("Layer" + a).style.display == "block") {
 					document.getElementById("Layer" + a).style.display = "none";
-				} else {
-					document.getElementById("Layer" + a).style.display = "block";
-				}
-			}
+	} else {
+		document.getElementById("Layer" + a).style.display = "block";
+	}
+}

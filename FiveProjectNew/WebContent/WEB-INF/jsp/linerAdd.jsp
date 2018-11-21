@@ -12,7 +12,6 @@
 <script src="${pageContext.request.contextPath}/res/js/jquery-1.11.0.js"></script>
 <script
 	src="${pageContext.request.contextPath}/res/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-
 <script type="text/javascript">
 	function updateForm() {
 		//alert(1);

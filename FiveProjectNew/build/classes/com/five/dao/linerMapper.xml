@@ -17,8 +17,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		LinerId = #{linerId}
 	</delete>
 
-	<update id="update"
-		parameterType="com.five.model.SysWorkLiner">
+	<update id="update" parameterType="com.five.model.SysWorkLiner">
 		update sysworkliner set
 		LinerName=#{linerName},LinerAdmin=#{linerAdmin },ShopId=#{shopId }
 		where LinerId=#{linerId }
@@ -45,9 +44,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		sysworkliner
 	</select>
 
-	<select id="findAll"
-		resultType="com.five.model.SysWorkLiner">
+	<select id="findAll" resultType="com.five.model.SysWorkLiner">
 		select * from
-		sysworkliner limit #{startRow},#{limitNo}
+		sysworkliner limit
+		#{startRow},#{limitNo}
 	</select>
 </mapper>

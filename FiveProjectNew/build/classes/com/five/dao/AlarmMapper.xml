@@ -4,25 +4,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.five.dao.AlarmDao">
 	<insert id="add" parameterType="com.five.model.AlarmModel">
-	<if test="reasonId==null">
-		insert into sysalarmreason
-		(description,typeId)values(#{description},#{typeId});
+		<if test="reasonId==null">
+			insert into sysalarmreason
+			(description,typeId)values(#{description},#{typeId});
 		</if>
 		<if test="reasonId!=null">
-		insert into sysalarmreason
-		(reasonId,description,typeId)values(#{reasonId},#{description},#{typeId});
+			insert into sysalarmreason
+			(reasonId,description,typeId)values(#{reasonId},#{description},#{typeId});
 		</if>
 	</insert>
 
-
 	<delete id="del" parameterType="int">
-		delete from sysalarmreason where reasonId=#{reasonId};
+		delete from sysalarmreason where
+		reasonId=#{reasonId};
 	</delete>
 
 	<update id="update" parameterType="com.five.model.AlarmModel">
-		update sysalarmreason set reasonId=
+		update sysalarmreason set
+		reasonId=
 		#{reasonId},description=#{description},typeId=#{typeId}
-		where reasonId=#{reasonId};
+		where
+		reasonId=#{reasonId};
 	</update>
 
 	<select id="findById" parameterType="int"
@@ -30,28 +32,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from sysalarmreason where reasonId=#{reasonId};
 	</select>
 
-
 	<select id="findAll" resultType="com.five.model.AlarmModel">
-		 select *from sysalarmreason order by reasonId limit #{offset},#{limit};
-	</select>
-	
-	<select id="findReasonId" resultType="com.five.model.AlarmModel">
-		 select reasonId from sysalarmreason ;
+		select * from sysalarmreason
+		order by reasonId limit #{offset},#{limit};
 	</select>
 
-	<select id="findByCondiction" parameterType="com.five.model.AlarmModel"
+	<select id="findReasonId" resultType="com.five.model.AlarmModel">
+		select reasonId from
+		sysalarmreason ;
+	</select>
+
+	<select id="findByCondiction"
+		parameterType="com.five.model.AlarmModel"
 		resultType="com.five.model.AlarmModel">
-		select * from  sysalarmreason where 1=1 
+		select * from sysalarmreason where 1=1
 		<if test="description==null">
 			<if test="typeId!=null">and typeId like '%${typeId}%'</if>
 			<if test="typeId==null"></if>
 		</if>
 		<if test="description!=null">
-			<if test="typeId!=null"> and typeId like '%${typeId}%' and  description like
+			<if test="typeId!=null"> and typeId like '%${typeId}%' and description like
 				'%${description}%'</if>
 			<if test="typeId==null"> and description like '%${description}%'</if>
 		</if>
-
 	</select>
 
 </mapper>

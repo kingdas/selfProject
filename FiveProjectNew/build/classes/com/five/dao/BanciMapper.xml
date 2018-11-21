@@ -3,7 +3,7 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.five.dao.BanciDao">
-<insert id="add" parameterType="com.five.model.BanciModel">
+	<insert id="add" parameterType="com.five.model.BanciModel">
 		insert into
 		sysworkshift(shiftid,shiftname,shiftstarttime,shiftendtime,shopid,linerid,placeid)
 		values(#{shiftid},#{shiftname},#{shiftstarttime},#{shiftendtime},#{shopid},#{linerid},#{placeid})
@@ -23,12 +23,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from sysworkshift where shiftid=#{shiftid}
 	</select>
 	<select id="FindAll" resultType="com.five.model.BanciModel">
-		select * from sysworkshift order by shiftid limit #{offset}, #{limit}
+		select * from sysworkshift order
+		by shiftid limit #{offset}, #{limit}
 	</select>
 	<select id="FindAllNum" resultType="int">
-		select count(*) from sysworkshift
+		select count(*) from
+		sysworkshift
 	</select>
-	<select id="FindByCondition" parameterType="com.five.model.BanciModel"
+	<select id="FindByCondition"
+		parameterType="com.five.model.BanciModel"
 		resultType="com.five.model.BanciModel">
 		select *from sysworkshift where 1=1
 		<if test="shopid!=-1">
@@ -41,7 +44,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			and placeid=#{placeid}
 		</if>
 		<if test="shiftname!=''">
-			and shiftname like concat(concat("%",#{shiftname},"%"))
+			and shiftname like concat(concat('%',#{shiftname}),'%'))
 		</if>
 	</select>
 </mapper>

@@ -54,6 +54,7 @@ $(document).ready(function() {
 										//changeLast("http://localhost:8080/FiveProject/welcome.jsp");
 					});
 				});
+
 function change(url) {
 	/*
 	 * var a=document.getElementsByName("myLabel"); //var flag=0; for(var i=0;i<a.length;i++){
