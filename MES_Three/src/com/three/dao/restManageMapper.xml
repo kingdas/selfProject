@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.three.dao.RestManageDao">
+	<insert id="add" parameterType="com.three.model.SysWorkRest">
+		insert into
+		sysworkrest(restName,restStartTime,restEndTime,shopId,linerId,placeId,shiftId)
+		values(#{restName},#{restStartTime},#{restEndTime},#{shopId},#{linerId},#{placeId},#{shiftId});
+	</insert>
+	<update id="update" parameterType="com.three.model.SysWorkRest">
+		update sysworkrest set
+		restName =
+		#{restName},restStartTime = #{restStartTime},restEndTime =
+		#{restEndTime},
+		shopId = #{shopId},linerId = #{linerId},placeId =
+		#{placeId},shiftId = #{shiftId} where restId=#{restId};
+	</update>
+	<delete id="del" parameterType="int">
+		delete from sysworkrest where
+		restId=#{restId};
+	</delete>
+	<select id="findById" parameterType="int"
+		resultType="com.three.model.SysWorkRest">
+		select *from sysworkrest where restId=#{restId};
+	</select>
+	<select id="findAll" resultType="com.three.model.SysWorkRest">
+		select *from sysworkrest;
+	</select>
+	<select id="findByCondition"
+		parameterType="com.three.model.SysWorkRest"
+		resultType="com.three.model.SysWorkRest">
+		select *from sysworkrest where 1=1
+		<if test="shopId != 0">
+			and shopId=#{shopId}
+		</if>
+		<if test="linerId !=0">
+			and linerId=#{linerId}
+		</if>
+		<if test="placeId != 0">
+			and placeId=#{placeId}
+		</if>
+		<if test="shiftId != 0">
+			and shiftId=#{shiftId}
+		</if>
+		<if test="restName != null">
+			and restName like concat(concat('%',#{restName}),'%')
+		</if>
+	</select>
+</mapper>

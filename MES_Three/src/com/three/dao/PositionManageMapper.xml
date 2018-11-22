@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.three.dao.PositionManageDao">
+	<insert id="add" parameterType="com.three.model.PositionManage">
+		insert into
+		sysworkplace(placeName,placeAdmin,shopId,linerId,opid)values(
+		#{placeName},#{placeAdmin},#{shopId},#{linerId},#{opid})
+	</insert>
+	<select id="findByCondition"
+		parameterType="com.three.model.PositionManage"
+		resultType="com.three.model.PositionManage">
+		select * from sysworkplace
+		<where>
+			<if test="shopId!=0">
+				and shopId=#{shopId}
+			</if>
+			<if test="linerId!=0">
+				and linerId =#{linerId}
+			</if>
+			<if test="placeName!=''">
+				and placeName like concat(concat('%',#{placeName}),'%')
+			</if>
+			<if test="placeAdmin!=''">
+				and placeAdmin like concat(concat('%',#{placeAdmin}),'%')
+			</if>
+		</where>
+	</select>
+
+	<select id="findById" parameterType="int"
+		resultType="com.three.model.PositionManage">
+		select * from sysworkplace where placeId=#{placeId}
+	</select>
+
+	<select id="findAll" resultType="com.three.model.PositionManage">
+		select * from sysworkplace
+	</select>
+
+	<delete id="del" parameterType="int">
+		delete from sysworkplace where
+		placeId=#{placeId}
+	</delete>
+
+	<update id="update"
+		parameterType="com.three.model.PositionManage">
+		update sysworkplace set
+		placeName=#{placeName},placeAdmin=#{placeAdmin},shopId=#{shopId},
+		linerId=#{linerId},opid=#{opid} where placeId = #{placeId}
+	</update>
+</mapper>

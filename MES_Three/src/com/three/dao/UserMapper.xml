@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.three.dao.UserDao">
+
+	<insert id="add" parameterType="com.three.model.UserModle">
+		insert into
+		sysUser(userCode,userPassword,userName,userJob,userEmail,userMobile,userWxnd,userGroup,userRole,isLoginer,isLockPlace,lockPlaceId,createUser,createTime,lastUpdateUser,lastUpdateTime,lastLoginTime,lastLoginoutTime)
+		values(#{userCode},#{userPassword},#{userName},#{userJob},#{userEmail},#{userMobile},#{userWxnd},#{userGroup},#{userRole},#{isLoginer},#{isLockPlace},#{lockPlaceId},#{createUser},#{createTime},#{lastUpdateUser},#{lastUpdateTime},#{lastLoginTime},#{lastLoginoutTime})
+	</insert>
+
+	<delete id="del" parameterType="int">
+		delete from sysUser where
+		userId=#{userId}
+	</delete>
+
+	<update id="update" parameterType="com.three.model.UserModle">
+		update sysUser set
+		userCode=#{userCode},userPassword=#{userPassword},userJob=#{userJob},userEmail=#{userEmail},userMobile=#{userMobile},userWxnd=#{userWxnd},userGroup=#{userGroup},userRole=#{userRole},isLoginer=#{isLoginer},isLockPlace=#{isLockPlace},lockPlaceId=#{lockPlaceId}
+		where userId=#{userId}
+	</update>
+
+	<select id="findAll" resultType="com.three.model.UserModle">
+		select * from sysUser
+	</select>
+
+	<select id="findId" parameterType="int"
+		resultType="com.three.model.UserModle">
+		select * from sysUser where userId=#{userId}
+	</select>
+
+	<select id="findLogin" parameterType="com.three.model.UserModle"
+		resultType="com.three.model.UserModle">
+		select * from sysUser where userCode=#{userCode} and
+		userPassword=#{userPassword}
+	</select>
+
+	<select id="findbyCondition"
+		parameterType="com.three.model.UserModle"
+		resultType="com.three.model.UserModle">
+		select * from sysUser where 1=1
+		<if test="userGroup!=''"> and userGroup=#{userGroup}</if>
+		<if test="userRole!=''"> and userRole=#{userRole}</if>
+		<if test="userJob!=''"> and userJob=#{userJob}</if>
+		<if test="userCode!=''"> and userCode like concat(concat('%',#{userCode}),'%')
+		</if>
+		<if test="userName!=''"> and userName like concat(concat('%',#{userName}),'%')
+		</if>
+	</select>
+
+</mapper>

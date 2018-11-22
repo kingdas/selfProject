@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.three.dao.VocationDao">
+	<insert id="add" parameterType="com.three.model.VocationModel">
+		insert into
+		sysholiday(holidayName,holidayStartTime,holidayEndTime,shopId,linerId,placeId,shiftId)values
+		(#{holidayName},#{holidayStartTime},#{holidayEndTime},#{shopId},#{linerId},#{placeId},#{shiftId})
+	</insert>
+	<delete id="del" parameterType="int">
+		delete from sysholiday where
+		holidayId=#{holidayId}
+	</delete>
+	<update id="update"
+		parameterType="com.three.model.VocationModel">
+		update sysholiday set
+		holidayName=#{holidayName},holidayStartTime=#{holidayStartTime},
+		holidayEndTime=#{holidayEndTime},shopId=#{shopId},linerId=#{linerId},placeId=#{placeId},shiftId=#{shiftId}
+		where holidayId=#{holidayId}
+	</update>
+
+	<select id="findById" parameterType="int"
+		resultType="com.three.model.VocationModel"> select * from sysholiday where holidayId=#{holidayId}
+	</select>
+	<select id="findAll" resultType="com.three.model.VocationModel">
+		select * from sysholiday
+	</select>
+
+	<select id="findByCondition"
+		parameterType="com.three.model.VocationModel"
+		resultType="com.three.model.VocationModel">
+		select * from sysholiday where 1=1
+		<if test="shopId!='' and shopId!=-1 "> and shopId=#{shopId}</if>
+		<if test="linerId!='' and linerId!=-1"> and linerId=#{linerId}</if>
+		<if test="placeId!='' and placeId!=-1"> and placeId=#{placeId}</if>
+		<if test="shiftId!='' and shiftId!=-1"> and shiftId=#{shiftId}</if>
+		<if test="holidayName!=''"> and holidayName like
+			concat(concat('%',#{holidayName}),'%')</if>
+	</select>
+</mapper>
+

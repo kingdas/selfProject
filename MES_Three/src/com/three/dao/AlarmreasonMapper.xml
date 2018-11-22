@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.three.dao.AlarmreasonDao">
+	<insert id="add" parameterType="com.three.model.AlarmreasonModel">
+		<if test="reasonId!=''">
+		    insert into sysalarmreason(reasonId,description,typeId)
+		    values(#{reasonId},#{description},#{typeId})
+		</if>
+		<if test="reasonId==''">
+		    insert into sysalarmreason(description,typeId)
+		    values(#{description},#{typeId})
+		</if>
+	</insert>
+	<select id="findById" parameterType="int"
+		resultType="com.three.model.AlarmreasonModel">
+		select * from sysalarmreason where reasonId=#{reasonId}
+	</select>
+	<select id="findAll" resultType="com.three.model.AlarmreasonModel">
+		select * from sysalarmreason
+	</select>
+	<delete id="del" parameterType="int">
+		delete from sysalarmreason where reasonId=#{reasonId}
+	</delete>
+	<update id="update" parameterType="com.three.model.AlarmreasonModel">
+		update sysalarmreason set description=#{description},typeId=#{typeId} 
+		where reasonId=#{reasonId}
+	</update>
+	<select id="findByCondition" resultType="com.three.model.AlarmreasonModel">
+		select * from sysalarmreason
+		<where>
+			<if test="typeId!=null"> and typeId=#{typeId}</if>
+			<if test="description!=null"> and description like concat(concat('%',#{description}),'%')</if>
+		</where>
+	</select><!-- 模糊查询 -->
+</mapper>

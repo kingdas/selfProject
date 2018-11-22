@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.three.dao.ShiftDao">
+	<insert id="add">
+		insert into
+		sysworkshift(shiftName,shiftStartTime,shiftEndTime,shopId,linerId,placeId)values(#{shiftName},#{shiftStartTime},#{shiftEndTime},#{shopId},#{linerId},#{placeId})
+	</insert>
+
+	<delete id="delete">
+		delete from sysworkshift where
+		shiftId =
+		#{shiftId}
+	</delete>
+
+	<update id="update" parameterType="com.three.model.SysWorkShift">
+		update sysworkshift set
+		shiftName =
+		#{shiftName},shiftStartTime =
+		#{shiftStartTime},shiftEndTime =
+		#{shiftEndTime},linerId =
+		#{linerId},shopId = #{shopId},placeId =
+		#{placeId} where shiftId =
+		#{shiftId}
+	</update>
+
+	<select id="findById" resultType="com.three.model.SysWorkShift">
+		select * from sysworkshift
+		where shiftId = #{shiftId}
+	</select>
+
+	<select id="findByCondition"
+		resultType="com.three.model.SysWorkShift">
+		select * from sysworkshift
+		<where>
+			<if test="shopId!=-1"> and shopId = #{shopId}</if>
+			<if test="linerId!=-1"> and linerId = #{linerId}</if>
+			<if test="placeId!=-1"> and placeId = #{placeId}</if>
+			<if test="shiftName!=''"> and shiftName like '%${shiftName}%'
+			</if>
+		</where>
+	</select>
+
+	<select id="findAll" resultType="com.three.model.SysWorkShift">
+		select * from sysworkshift
+	</select>
+</mapper>
