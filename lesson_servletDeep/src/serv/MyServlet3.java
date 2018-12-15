@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 
 
 @WebServlet("/ms3")
-public class MyServlet3 implements Servlet {
+public class MyServlet3 implements Servlet { //以下五个方法是servlet接口中的抽象方法
 
 	@Override
 	public void destroy() {

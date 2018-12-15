@@ -40,9 +40,6 @@
 			method="post" onSubmit="retrun checkSloganAndMoney()">
 			<table style="border: 0;">
 				<tr>
-					<td colspan="2" align="left">当前用户:${lm.name }</td>
-				</tr>
-				<tr>
 					<td colspan="2" align="center"><h4>申请贷款</h4></td>
 				</tr>
 				<tr>
@@ -60,6 +57,5 @@
 			</table>
 		</form>
 	</div>
-
 </body>
 </html>
