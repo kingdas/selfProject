@@ -7,6 +7,4 @@ import ssm.model.LoanQueryModel;
 
 public interface LoanDao {
 	List<LoanModel> find(LoanQueryModel lqm);
-
-	
 }

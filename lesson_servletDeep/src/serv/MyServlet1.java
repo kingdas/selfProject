@@ -22,7 +22,7 @@ public class MyServlet1 extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//System.out.println(req.getParameter("name"));
+		// System.out.println(req.getParameter("name"));
 		resp.getWriter().print(new Random().nextInt(100));
 	}
 

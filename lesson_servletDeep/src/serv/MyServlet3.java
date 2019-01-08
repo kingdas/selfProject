@@ -19,6 +19,17 @@ public class MyServlet3 implements Servlet { //以下五个方法是servlet接口中的抽象
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public void init(ServletConfig arg0) throws ServletException {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public void service(ServletRequest arg0, ServletResponse arg1) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		System.out.println("service3");
+	}
 
 	@Override
 	public ServletConfig getServletConfig() {
@@ -32,17 +43,6 @@ public class MyServlet3 implements Servlet { //以下五个方法是servlet接口中的抽象
 		return null;
 	}
 
-	@Override
-	public void init(ServletConfig arg0) throws ServletException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void service(ServletRequest arg0, ServletResponse arg1) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		System.out.println("service3");
-	}
 	
 
 }

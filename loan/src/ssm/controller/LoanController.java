@@ -82,12 +82,10 @@ public class LoanController {
 			return "menuManager";
 		}
 		return "menuStaff";
-
 	}
 
 	@RequestMapping("applyRelay")
 	public String applyRe(Model m, HttpServletRequest rsq) {
 		return "apply";
 	}
-
 }

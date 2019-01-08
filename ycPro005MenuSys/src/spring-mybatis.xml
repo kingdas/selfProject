@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="
 http://www.springframework.org/schema/beans 
@@ -13,7 +14,8 @@ http://www.springframework.org/schema/aop/spring-aop.xsd
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context.xsd
 ">
-	<!-- <bean id="us" class="com.hh.userMager.user.service.UserServiceImpl" /> -->
+	<!-- <bean id="us" class="com.hh.userMager.user.service.UserServiceImpl" 
+		/> -->
 
 
 	<!-- 服务器启动时加载配置文件的顺序：web.xml,root-context.xml(spring配置文件)， -->
@@ -26,27 +28,32 @@ http://www.springframework.org/schema/context/spring-context.xsd
 
 
 	<!-- 数据源 -->
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-		destroy-method="close">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/menuSys" />
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/menuSys" />
 		<property name="username" value="root" />
-		<property name="password" value="root" />
+		<property name="password" value="jins" />
 		<property name="defaultAutoCommit" value="false" />
 	</bean>
 
 
 	<!-- 不需要配置myBatis映射文件 -->
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="mapperLocations" value="classpath:com/yc/menuSys/dao/*.xml" />
+		<property name="mapperLocations"
+			value="classpath:com/yc/menuSys/dao/*.xml" />
 		<property name="configLocation" value="classpath:mybatis.xml" />
 	</bean>
 
 	<!-- 生成mapper接口的代理 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.yc.menuSys.dao" />
-		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+		<property name="sqlSessionFactoryBeanName"
+			value="sqlSessionFactory" />
 	</bean>
 
 	<!-- 事务配置 -->
@@ -62,12 +69,13 @@ http://www.springframework.org/schema/context/spring-context.xsd
 			<tx:method name="add*" propagation="REQUIRED" />
 			<tx:method name="del*" propagation="REQUIRED" />
 			<tx:method name="update*" propagation="REQUIRED" />
-			<tx:method name="find*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="find*" propagation="SUPPORTS"
+				read-only="true" />
 		</tx:attributes>
 	</tx:advice>
 	<aop:config>
-		<aop:pointcut expression="execution(* com.yc.menuSys.service.*.*(..))"
-			id="tp" />
+		<aop:pointcut
+			expression="execution(* com.yc.menuSys.service.*.*(..))" id="tp" />
 		<aop:advisor advice-ref="ta" pointcut-ref="tp" />
 	</aop:config>
 </beans>

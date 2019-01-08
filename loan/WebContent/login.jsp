@@ -9,9 +9,6 @@
 	function checkNameAndPwd() {
 		var name = document.getElementById("loginName").value;
 		var pwd = document.getElementById("password").value;
-		xhr.open("get",
-				"${pageContext.request.contextPath }/loan/loginAction?loginName="
-						+ name + "&password=" + pwd, true);
 		/* xhr.setRequestHeader("Content-Type",
 				"application/x-www-form-urlencoded"); */
 		var xhr = new XMLHttpRequest();
@@ -20,13 +17,16 @@
 				if (xhr.responseText == "1") {
 					return true;
 				} else {
-					alert("不存在此用户");
+					alert('不存在此用户');
 					name = "";
 					pwd = "";
 					return false;
 				}
 			}
 		}
+		xhr.open("get",
+				"${pageContext.request.contextPath }/loan/loginAction?loginName="
+						+ name + "&password=" + pwd, true);
 		xhr.send(null);//"loginName=" + name + "&password=" + pwd
 	}
 </script>

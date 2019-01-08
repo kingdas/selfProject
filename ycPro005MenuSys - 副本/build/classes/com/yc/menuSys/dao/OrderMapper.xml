@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace必须和Dao同名,ID要和dao中的方法同名 ，目的让spring生成dao实现类 -->
+<mapper namespace="com.yc.menuSys.dao.OrderDao">
+
+	<insert id="add" parameterType="com.yc.menuSys.model.Order"
+		useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+		insert into
+		t_order(tableNum,personCount,totalPrice,realPrice,remark)values(#{tableNum},#{personCount},#{totalPrice},#{realPrice},#{remark});
+	</insert>
+
+</mapper>

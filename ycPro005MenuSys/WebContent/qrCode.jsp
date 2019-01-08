@@ -34,7 +34,5 @@
 	<br/>
 	${basePath}qrCodeController
 	<br/>
-
-
 </body>
 </html>

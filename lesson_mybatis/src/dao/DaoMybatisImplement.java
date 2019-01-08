@@ -11,9 +11,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 public class DaoMybatisImplement implements Userdao {
-	SqlSessionFactory sf = new SqlSessionFactoryBuilder().build(Thread
-			.currentThread().getContextClassLoader()
-			.getResourceAsStream("mybatis.xml"));
+	SqlSessionFactory sf = new SqlSessionFactoryBuilder()
+			.build(Thread.currentThread().getContextClassLoader().getResourceAsStream("mybatis.xml"));
 
 	@Override
 	public int add(User u) {
@@ -68,9 +67,9 @@ public class DaoMybatisImplement implements Userdao {
 		User u = null;
 		SqlSession s = sf.openSession();
 		try {
-			u = s.selectOne("dao.Userdao.findById", id);			
+			u = s.selectOne("dao.Userdao.findById", id);
 		} catch (Exception e) {
-			e.printStackTrace();			
+			e.printStackTrace();
 		} finally {
 			s.close();
 		}
@@ -105,5 +104,4 @@ public class DaoMybatisImplement implements Userdao {
 		}
 		return li;
 	}
-
 }

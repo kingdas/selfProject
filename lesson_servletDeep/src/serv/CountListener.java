@@ -15,15 +15,11 @@ public class CountListener implements ServletContextListener, HttpSessionListene
 
 	public void sessionCreated(HttpSessionEvent arg0) {
 		sc.setAttribute("ac", ++ac);
-	sc.setAttribute("oc", ++oc);
+		sc.setAttribute("oc", ++oc);
 	}
 
 	public void sessionDestroyed(HttpSessionEvent se) {
 		sc.setAttribute("oc", --oc);
-	}
-
-	public void contextDestroyed(ServletContextEvent sce) {
-
 	}
 
 	public void contextInitialized(ServletContextEvent sce) {
@@ -32,4 +28,7 @@ public class CountListener implements ServletContextListener, HttpSessionListene
 		sc.setAttribute("oc", oc);
 	}
 
+	public void contextDestroyed(ServletContextEvent sce) {
+
+	}
 }

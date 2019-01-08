@@ -14,13 +14,11 @@ public abstract class BaseServiceImpl<M> implements BaseService<M> {
 	@Override
 	public void del(int id) {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void update(M m) {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override

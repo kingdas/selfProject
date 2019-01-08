@@ -44,12 +44,12 @@
 				</tr>
 				<tr>
 					<td>金额</td>
-					<td><input type="text" name="money" id="money"
+					<td><input type="text" name="amount" id="money"
 						onblur="checkMoney(this.value)"></td>
 				</tr>
 				<tr>
 					<td>标题</td>
-					<td><input type="text" name="slogan" id="slogan"></td>
+					<td><input type="text" name="title" id="slogan"></td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center"><input type="submit" value="提交"></td>

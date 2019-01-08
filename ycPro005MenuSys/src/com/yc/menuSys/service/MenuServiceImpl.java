@@ -20,6 +20,4 @@ public class MenuServiceImpl extends BaseServiceImpl<Menu> implements
 		return menuDao;
 	}
 
-
-
 }

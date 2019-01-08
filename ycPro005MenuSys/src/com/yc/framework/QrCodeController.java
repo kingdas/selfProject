@@ -4,7 +4,6 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -17,11 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class QrCodeController {
 
 	@RequestMapping("/tableNum/{tn}")
-	public String getQr(@PathVariable String tn, HttpServletRequest req,
-			HttpServletResponse resp) {
-		String url = req.getScheme() + "://" + "192.168.0.108" + ":"
-				+ req.getLocalPort() + req.getContextPath()
-				+ "/menuSys/order/addTableNum/"+tn;
+	public String getQr(@PathVariable String tn, HttpServletRequest req, HttpServletResponse resp) {
+		String url = req.getScheme() + "://" + "192.168.0.108" + ":" + req.getLocalPort() + req.getContextPath()
+				+ "/menuSys/order/addTableNum/" + tn;
 		System.out.println(url);
 		BufferedImage img = QrCodeUtils.getQrCode(url);
 		try {
