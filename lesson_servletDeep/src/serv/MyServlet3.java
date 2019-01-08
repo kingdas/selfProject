@@ -12,12 +12,23 @@ import javax.servlet.http.HttpServlet;
 
 
 @WebServlet("/ms3")
-public class MyServlet3 implements Servlet {
+public class MyServlet3 implements Servlet { //以下五个方法是servlet接口中的抽象方法
 
 	@Override
 	public void destroy() {
 		// TODO Auto-generated method stub
 		
+	}
+	@Override
+	public void init(ServletConfig arg0) throws ServletException {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public void service(ServletRequest arg0, ServletResponse arg1) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		System.out.println("service3");
 	}
 
 	@Override
@@ -32,17 +43,6 @@ public class MyServlet3 implements Servlet {
 		return null;
 	}
 
-	@Override
-	public void init(ServletConfig arg0) throws ServletException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void service(ServletRequest arg0, ServletResponse arg1) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		System.out.println("service3");
-	}
 	
 
 }

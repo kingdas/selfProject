@@ -28,11 +28,11 @@
 		flg = !flg;
 	}
 
-	 function jq2() {//点击更换图片
-		$("img").each(function() {
+	function jq2() {//点击更换图片
+		$("img").each(function() {//遍历所有img标签 为其更换图片
 			this.src = "res/image/2.jpg"
 		});
-	} 
+	}
 </script>
 </head>
 <body>

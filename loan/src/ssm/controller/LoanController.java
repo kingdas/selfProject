@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.taglibs.standard.lang.jstl.Literal;
-import org.hibernate.validator.constraints.Email;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -84,12 +82,10 @@ public class LoanController {
 			return "menuManager";
 		}
 		return "menuStaff";
-
 	}
 
 	@RequestMapping("applyRelay")
 	public String applyRe(Model m, HttpServletRequest rsq) {
 		return "apply";
 	}
-
 }

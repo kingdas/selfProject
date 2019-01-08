@@ -19,7 +19,7 @@
 			value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/loan" />
 		<property name="username" value="root" />
-		<property name="password" value="root" />
+		<property name="password" value="jins" />
 	</bean>
 	<bean id="sessionFactory"
 		class="org.mybatis.spring.SqlSessionFactoryBean">

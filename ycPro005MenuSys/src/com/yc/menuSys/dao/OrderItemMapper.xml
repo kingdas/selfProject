@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace必须和Dao同名,ID要和dao中的方法同名 ，目的让spring生成dao实现类 -->
+<mapper namespace="com.yc.menuSys.dao.OrderItemDao">
+
+	<insert id="add" parameterType="com.yc.menuSys.model.OrderItem">
+		insert into
+		t_orderItem(orderId,menuId,num)values(#{orderId},#{menuId},#{num});
+	</insert>
+
+</mapper>

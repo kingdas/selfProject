@@ -3,12 +3,12 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ssm.dao.LoanItemsDao">
-	<insert id="add" parameterType="ssm.model.LoanItems">
+	<insert id="add">
 		insert into loan
 		(employeeId,title,amount,applyDate,status)values(#{employeeId},#{title},#{amount},#{applyDate},#{status})
 	</insert>
-	<select id="findAll" parameterType="int"
-		resultType="ssm.model.LoanItems">
-		select * from loan where employeeId = #{id}
+	<select id="findAll" resultType="ssm.model.LoanItems">
+		select * from loan where
+		employeeId = #{id}
 	</select>
 </mapper>

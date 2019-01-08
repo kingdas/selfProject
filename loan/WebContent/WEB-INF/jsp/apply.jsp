@@ -40,19 +40,16 @@
 			method="post" onSubmit="retrun checkSloganAndMoney()">
 			<table style="border: 0;">
 				<tr>
-					<td colspan="2" align="left">当前用户:${lm.name }</td>
-				</tr>
-				<tr>
 					<td colspan="2" align="center"><h4>申请贷款</h4></td>
 				</tr>
 				<tr>
 					<td>金额</td>
-					<td><input type="text" name="money" id="money"
+					<td><input type="text" name="amount" id="money"
 						onblur="checkMoney(this.value)"></td>
 				</tr>
 				<tr>
 					<td>标题</td>
-					<td><input type="text" name="slogan" id="slogan"></td>
+					<td><input type="text" name="title" id="slogan"></td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center"><input type="submit" value="提交"></td>
@@ -60,6 +57,5 @@
 			</table>
 		</form>
 	</div>
-
 </body>
 </html>

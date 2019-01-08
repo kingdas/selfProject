@@ -23,7 +23,12 @@ public class LoanItems {
 		this.status = status;
 	}
 
-	
+	public LoanItems(String title, String amount) {
+		super();
+		this.title = title;
+		this.amount = amount;
+	}
+
 	public LoanItems(Integer employeeId, String title, String amount, String applyDate, Integer status) {
 		super();
 		this.employeeId = employeeId;

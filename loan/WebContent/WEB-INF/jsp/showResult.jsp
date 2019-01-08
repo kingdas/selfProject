@@ -22,7 +22,7 @@
 			<c:forEach items="${li }" var="lo">
 				<tr>
 					<td>${lo.title }</td>
-					<td width="100" align="center">${lo.amount }</td>
+					<td style="align-content: center;">${lo.amount }</td>
 					<td width="170" align="center">${lo.applyDate}</td>
 					<td>${lo.status == 0?'未审批':lo.status==1?'审批通过':'审批驳回' }
 				</tr>
