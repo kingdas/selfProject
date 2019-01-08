@@ -13,10 +13,8 @@ public class Test {
 //		Arrays.sort(arru);
 
 		Arrays.sort(arru, new Comparator<User>() {// Arrays.sort方法如果加上比较器之后，那么User就不需要实现Comparable接口了
-
 			@Override
 			public int compare(User o1, User o2) {
-
 //				return o1.getAge() - o2.getAge();
 //				return o1.getName().compareTo(o2.getName());
 				return o1.getName().compareTo(o2.getName()) == 0 ? o1.getAge() - o2.getAge()

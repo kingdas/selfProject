@@ -80,7 +80,7 @@ public class Test_io {
 //		os.write(99);
 //		os.close();
 
-		// 遍历读取
+// 遍历读取
 //		File f2 = new File("d:/a/b/a.txt");
 //		InputStream is2 = new FileInputStream(f2);
 //		int t;

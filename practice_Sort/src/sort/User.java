@@ -35,7 +35,7 @@ public class User {// implements Comparable {
 	public String toString() {
 		return "User [name=" + name + ", age=" + age + "]";
 	}
-
+	
 //	@Override
 //	public int compareTo(Object o) {
 ////		User u = (User) o;

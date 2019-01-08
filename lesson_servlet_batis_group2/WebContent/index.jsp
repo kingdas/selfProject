@@ -13,7 +13,7 @@
 
 	<%-- <%
 	response.sendRedirect("controller.jsp");
-	%> --%>
-
+	%>
+ --%>
 	<jsp:forward page="rely" />
 </html>
