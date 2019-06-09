@@ -23,8 +23,8 @@ $(document)
 							.html(
 									"<iframe src='http://localhost:8080/MES_Three/welcome.jsp' width='100%' height='650px' style='border:0px;' ></iframe>");
 					$("#user").click(function() {
-						change(head + "/all/list");
-						addtag("用户管理", "user", head + "/all/list");
+						change(head + "/user/list");
+						addtag("用户管理", "user", head + "/user/list");
 						// changeLast("http://localhost:8080/FiveProject/welcome.jsp");
 					});
 					$("#workshop").click(function() {
@@ -33,13 +33,13 @@ $(document)
 						// changeLast("http://localhost:8080/FiveProject/welcome.jsp");
 					});
 					$("#line").click(function() {
-						change(head + "/all/list");
-						addtag("产线管理", "line", head + "/all/list");
+						change(head + "/liner/list");
+						addtag("产线管理", "line", head + "/liner/list");
 						// changeLast("http://localhost:8080/FiveProject/welcome.jsp");
 					});
 					$("#position").click(function() {
-						change(head + "/positionManage/list");
-						addtag("工位管理", "position", head + "/workshop/list");
+						change(head + "/position/list");
+						addtag("工位管理", "position", head + "/position/list");
 						// changeLast("http://localhost:8080/FiveProject/welcome.jsp");
 					});
 					$("#rest").click(function() {
@@ -77,11 +77,7 @@ function change(url) {
 	 * var a=document.getElementsByName("myLabel"); //var flag=0; for(var i=0;i<a.length;i++){
 	 * if(a[i].id==idname){
 	 */
-	$("#mainpage")
-			.html(
-					"<iframe src='"
-							+ url
-							+ "' width='100%' height='650px' style='border:0px;' ></iframe>");
+	$("#mainpage").html("<iframe src='"+ url+ "' width='100%' height='650px' style='border:0px;' ></iframe>");
 	// alert("zhixing "+url);
 }
 /*
@@ -90,7 +86,6 @@ function change(url) {
  * src='"+url+"' width='100%' height='650px' style='border:0px;' ></iframe>"); } } }
  */
 function changeLast(url) {// 当标签只剩最后一个时，可以将显示首页
-
 	var a = document.getElementsByClassName("myLabel");
 	// alert(a.length);
 	if (a.length > 1) {
@@ -125,7 +120,6 @@ function addtag(showname, idname, url) {
 }
 
 function showmenu(a) {
-
 	if (document.getElementById("Layer" + a).style.display == "block") {
 		document.getElementById("Layer" + a).style.display = "none";
 	} else {

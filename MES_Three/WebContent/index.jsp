@@ -8,16 +8,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/res/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/res/css/frame.css">
 <script
 	src="${pageContext.request.contextPath}/res/js/jquery-3.3.1.min.js"></script>
 <script
 	src="${pageContext.request.contextPath}/res/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/res/css/frame.css">
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/res/js/frame.js"></script>
-
-<title>mes生产管理系统</title>
+<title>MES生产管理系统</title>
 <style type="text/css">
 body {
 	/* position: absolute; */
@@ -47,6 +46,7 @@ body {
 		</div>
 	</div>
 	<hr class="hr" />
+
 	<!-- 侧面导航栏 -->
 	<div class="row col-md-2.5 side-bar" id="leftrol"
 		style="height: 80%; position: absolute; margin-top: 6%; background-color: rgba(255, 240, 245, 0.2); border-right: 1px #ddd solid; margin-left: 2px;">
@@ -62,10 +62,10 @@ body {
 				</h3>
 				<div id="Layer3">
 					<ul>
-						<li><a href="#" id="user"><strong>用户管理</strong></a></li>
 						<li><a href="#" id="role"><strong>角色管理</strong></a></li>
+						<li><a href="#" id="user"><strong>用户管理</strong></a></li>
+						<li><a href="#" id="backup"><strong>备份管理</strong></a></li>
 						<li><a href="#" id="userGroup"><strong> 用户组管理</strong></a></li>
-						<li><a href="#"><strong>备份管理</strong></a></li>
 					</ul>
 				</div>
 			</div>

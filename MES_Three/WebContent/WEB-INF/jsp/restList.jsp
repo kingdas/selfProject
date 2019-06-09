@@ -9,9 +9,7 @@
 <html>
 <head>
 <base href="<%=basePath%>">
-
 <title>My JSP 'restMange.jsp' starting page</title>
-
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
@@ -48,65 +46,69 @@
 		}
 	}
 </script>
+<style type="text/css">
+label {
+	margin-right: 10px;
+}
+
+select {
+	margin-right: 10px;
+}
+
+button {
+	margin-right: 30px;
+}
+</style>
 </head>
 <body>
-	<hr />
-	<form action="${pageContext.request.contextPath}/rest/search">
-
-		<nobr>车间：</nobr>
-		<select style="margin: 20px;" class="btn btn-default btn-sm"
-			id="shopId" name="shopId">
-			<option value="0"></option>
+	<form action="${pageContext.request.contextPath}/rest/search"
+		class="form-inline" method="post">
+		<label>车间：</label> <select class="form-control" id="shopId"
+			name="shopId">
+			<option value="0">-----</option>
 			<option value="1">1</option>
 			<option value="2">2</option>
 			<option value="3">3</option>
-		</select>
-		<nobr>产线：</nobr>
-		<select style="margin: 20px;" class="btn btn-default btn-sm"
-			id="linerId" name="linerId">
-			<option value="0"></option>
+		</select> <label>产线：</label> <select class="form-control" id="linerId"
+			name="linerId">
+			<option value="0">-----</option>
 			<option value="1">1</option>
 			<option value="2">2</option>
 			<option value="3">3</option>
-		</select>
-		<nobr>工位：</nobr>
-		<select style="margin: 20px;" class="btn btn-default btn-sm"
-			id="placeId" name="placeId">
-			<option value="0"></option>
+		</select> <label>工位：</label> <select class="form-control" id="placeId"
+			name="placeId">
+			<option value="0">-----</option>
 			<option value="1">1</option>
 			<option value="2">2</option>
 			<option value="3">3</option>
-		</select>
-		<nobr>班次：</nobr>
-		<select style="margin: 20px;" class="btn btn-default btn-sm"
-			id="shifId" name="shiftId">
-			<option value="0"></option>
+		</select> <label>班次：</label> <select class="form-control" id="shifId"
+			name="shiftId">
+			<option value="0">----</option>
 			<option value="1">1</option>
 			<option value="2">2</option>
 			<option value="3">3</option>
-		</select>
-		<nobr>休息名称：</nobr>
-		<input style="margin: 25px; margin-left: 20px" type="text"
-			id="restName" name="restName" class="btn btn-default" />
+		</select> <label>休息名称：</label> <input type="text" id="restName" name="restName"
+			class="form-control" style="margin-right: 30px;" />
 		<button type="submit" class="btn btn-default">
-			<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-			查询
+			<span class="glyphicon glyphicon-search"></span> &nbsp;查询
 		</button>
 	</form>
 	<hr />
-	<button type="button" class="btn btn-default "
-		onclick="window.open('${pageContext.request.contextPath}/rest/add','_self');">
-		<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 添加
-	</button>
-	<button type="button" class="btn btn-default " id="upd">
-		<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 修改
-	</button>
-	<button type="button" class="btn btn-default " id="del">
-		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 删除
-	</button>
-	<button type="button" class="btn btn-default ">
-		<span class="glyphicon glyphicon-share" aria-hidden="true"></span> 导出
-	</button>
+	<div style="margin-bottom: 20px;">
+		<button type="button" class="btn btn-default"
+			onclick="window.open('${pageContext.request.contextPath}/rest/add','_self');">
+			<span class="glyphicon glyphicon-plus"></span> &nbsp;添加
+		</button>
+		<button type="button" class="btn btn-default" id="upd">
+			<span class="glyphicon glyphicon-pencil"></span> &nbsp;修改
+		</button>
+		<button type="button" class="btn btn-default" id="del">
+			<span class="glyphicon glyphicon-remove"></span> &nbsp;删除
+		</button>
+		<button type="button" class="btn btn-default">
+			<span class="glyphicon glyphicon-share"></span> &nbsp;导出
+		</button>
+	</div>
 	<table class="table table-striped">
 		<tr>
 			<th>序号</th>
@@ -121,7 +123,7 @@
 			<th class="del">删除</th>
 		</tr>
 		<c:forEach items="${rs }" var="r">
-			<tr height="51px">
+			<tr>
 				<td>${r.restId }</td>
 				<td>${r.restName }</td>
 				<td>${r.restStartTime }</td>
@@ -132,10 +134,10 @@
 				<td>${r.shiftId }</td>
 				<td class="upd"><input type="button" value="修改"
 					onclick="window.open('${pageContext.request.contextPath}/rest/detail/${r.restId }','_self');"
-					class="btn btn-default" /></td>
+					class="btn btn-default btn-xs" /></td>
 				<td class="del"><input type="button" value="删除"
 					onclick="checkDel(${r.restId},${r.restName })"
-					class="btn btn-default" /></td>
+					class="btn btn-default btn-xs" /></td>
 			</tr>
 		</c:forEach>
 	</table>

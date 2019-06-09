@@ -38,22 +38,25 @@
 </head>
 <body>
 	<div align="center">
-		<h3 style="margin: 25px;">新增车间</h3>
+		<h3>新增车间</h3>
 		<form action="${pageContext.request.contextPath}/workshop/doAdd"
 			method="post" onsubmit="return updateForm();">
 			<table style="border: 0; align-content: center;">
 				<tr>
-					<td>车间名称</td>
-					<td><input style="margin: 20px; margin-right: 20px;"
-						type="text" id="shopName" name="shopName"
-						class="btn btn-default btn-sm"></td>
-					<td>车间主管</td>
-					<td><input style="margin: 20px;" type="text" id="shopAdmin"
-						name="shopAdmin" class="btn btn-default btn-sm"></td>
+					<td>车间名称：</td>
+					<td><input type="text" id="shopName" name="shopName"
+						class="btn btn-default" style="margin: 10px;"></td>
 				</tr>
-				<tr style="margin: 15px;">
-					<td colspan="2"><input type="submit"
-						class="btn btn-default btn-sm" value="&nbsp;保存&nbsp;" /></td>
+				<tr>
+					<td>车间主管：</td>
+					<td><input type="text" id="shopAdmin" name="shopAdmin"
+						class="btn btn-default" style="margin: 10px;"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><input type="submit"
+						class="btn btn-default btn-sm" value="添加" />&nbsp;&nbsp; <input
+						type="button" name="reback" class="btn btn-default btn-sm"
+						onclick="javascript:history.back(-1);" value="返回"></td>
 				</tr>
 			</table>
 		</form>

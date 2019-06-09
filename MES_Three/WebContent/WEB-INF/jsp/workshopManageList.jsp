@@ -29,11 +29,10 @@
 	});
 	/* 删除确认 */
 	function del(shopId,shopName,shopAdmin){
-		if(window.confirm("确认删除"+shopId+"车间名字"+shopName+"车间主任"+shopAdmin+"?")){
+		if(window.confirm("确认删除"+shopName+"车间车间主任"+shopAdmin+"?")){
 			location.href="${pageContext.request.contextPath}/workshop/del/"+shopId;
 		}
 	}
-	
 	
 </script>
 </head>
@@ -43,7 +42,8 @@
 		<form id="form1"
 			action="${pageContext.request.contextPath }/workshop/findByCondition"
 			method="post" class="form-inline">
-			<table style="width: 70%; margin: 30px;">
+			<table
+				style="width: 70%; margin: 30px; display: inline; float: left;">
 				<tr>
 					<td>车间名称</td>
 					<td><input style="margin-left: 20px; margin-right: 20px;"
@@ -60,6 +60,7 @@
 		</form>
 	</div>
 	<hr style="color: red; size: 10px;" />
+	<hr>
 	<!-- 增删改 -->
 	<div>
 		<table style="margin-left: 30px; margin-top: 30px;">
@@ -97,9 +98,9 @@
 					<td>${t.shopId }</td>
 					<td>${t.shopName }</td>
 					<td>${t.shopAdmin }</td>
-					<td class="update"><a
+					<td class="update"><a class="btn btn-default btn-xs"
 						href="${pageContext.request.contextPath }/workshop/update/${t.shopId}">修改</a></td>
-					<td class="del"><a href="#"
+					<td class="del"><a href="#" class="btn btn-default btn-xs"
 						onclick="del(${t.shopId} ,'${t.shopName }','${t.shopAdmin }')">删除</a></td>
 				</tr>
 			</c:forEach>

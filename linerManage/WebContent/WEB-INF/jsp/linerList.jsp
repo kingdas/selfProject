@@ -14,7 +14,7 @@
 <script
 	src="${pageContext.request.contextPath }/res/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath }/res/paging.js"></script>
-<title>Insert title here</title>
+<title>产线管理</title>
 <script type="text/javascript">
 	/* 删除及修改列的隐藏和显示 */
 	$(function() {

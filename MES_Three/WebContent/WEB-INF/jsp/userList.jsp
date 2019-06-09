@@ -27,57 +27,75 @@
 			$(".upd").hide();
 		});
 	});
+	function deleteConfirm(userId) {
+		if(window.confirm("确认删除？")){
+			location.href = "${pageContext.request.contextPath }/user/delete/"+userId;
+		}
+	}
 </script>
+<style type="text/css">
+label {
+	width: 80px;
+}
 
+.form-group {
+	margin-left: 30px;
+}
+</style>
 </head>
 <body>
-	<br>
-	<br>
-	<form action="${pageContext.request.contextPath }/user/findbyCondition"
-		method="post">
-		<table class="table">
-			<tr>
-				<td>用户名：</td>
-				<td><input type="text" name="userCode" /></td>
-				<td>用户组：</td>
-				<td><input type="text" name="userGroup" /></td>
-				<td>用户角色</td>
-				<td><input type="text" name="userRole" /></td>
-			</tr>
-			<tr>
-				<td>姓名：</td>
-				<td><input type="text" name="userName" /></td>
-				<td>职务：</td>
-				<td><input type="text" name="userJob" /></td>
-				<td colspan="2" align="center"><input type="submit" value="查询" /></td>
-			</tr>
-		</table>
+	<form action="${pageContext.request.contextPath }/user/findByCondition"
+		method="post" class="form-inline">
+		<div class="form-group">
+			<label>用户名：</label> <input type="text" class="form-control"
+				name="userCode" />
+		</div>
+		<div class="form-group">
+			<label>用户名：</label><input type="text" class="btn btn-default"
+				name="userGroup" />
+		</div>
+		<div class="form-group">
+			<label>用户角色：</label><input type="text" class="btn btn-default"
+				name="userRole" />
+		</div>
+		<br> <br>
+		<div class="form-group">
+			<label>姓名：</label><input type="text" class="btn btn-default"
+				name="userName" />
+		</div>
+		<div class="form-group">
+			<label>职务：</label><input type="text" class="btn btn-default"
+				name="userJob" />
+		</div>
+		<input type="submit" class="btn btn-default" value="查询"
+			style="margin-left: 30px;" />
 	</form>
-	<br>
+	<hr>
 	<!-- 增删改 -->
 	<div>
-		<table style="margin-left: 30px; margin-top: 30px;">
+		<table
+			style="margin-left: 30px; margin-top: 20px; margin-bottom: 20px;">
 			<tr>
 				<td><a style="margin-right: 35px;" class="btn btn-default"
-					href="${pageContext.request.contextPath }/page/useradd"> <span
+					href="${pageContext.request.contextPath }/page/userAdd"> <span
 						class="glyphicon glyphicon-plus"></span>&nbsp;增加&nbsp;
 				</a></td>
 				<td><a style="margin-right: 35px;" id="upd"
 					class="btn btn-default" href="#"> <span
-						class="glyphicon glyphicon-pencil">&nbsp;修改&nbsp;</span>
+						class="glyphicon glyphicon-pencil"></span>&nbsp;修改&nbsp;
 				</a></td>
 				<td><a style="margin-right: 35px;" id="del"
 					class="btn btn-default" href="#"> <span
-						class="glyphicon glyphicon-minus">&nbsp;删除&nbsp;</span>
+						class="glyphicon glyphicon-minus"></span>&nbsp;删除&nbsp;
 				</a></td>
 				<td><a class="btn btn-default" href="#"> <span
-						class="glyphicon glyphicon-share-alt">&nbsp;导出&nbsp;</span>
+						class="glyphicon glyphicon-share-alt"></span>&nbsp;导出&nbsp;
 				</a></td>
 			</tr>
 		</table>
 	</div>
 
-	<table class="table" align="center" width="640">
+	<table class="table table-hover" align="center">
 		<tr>
 			<td>用户名</td>
 			<td>姓名</td>
@@ -103,10 +121,10 @@
 				<td>${u.userMobile }</td>
 				<td>${u.userWxnd }</td>
 				<td>${u.lockPlaceId }</td>
-				<td class="upd"><a
+				<td class="upd"><a class="btn btn-default btn-xs"
 					href="${pageContext.request.contextPath }/user/update/${u.userId }">修改</a></td>
-				<td class="del"><a
-					href="${pageContext.request.contextPath }/user/del/${u.userId }">删除</a></td>
+				<td class="del"><a class="btn btn-default btn-xs" href="#"
+					onclick="deleteConfirm(${u.userId})">删除</a></td>
 			</tr>
 		</c:forEach>
 	</table>

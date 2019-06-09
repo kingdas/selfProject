@@ -1,14 +1,8 @@
 package com.three.dao;
 
-import java.util.List;
-
 import com.three.base.BaseDao;
-import com.three.model.UserModle;
+import com.three.model.UserModel;
 
-public interface UserDao extends BaseDao<UserModle> {
-	UserModle findLogin(UserModle u);
+public interface UserDao extends BaseDao<UserModel> {
 
-	UserModle findId(int userId);
-
-	List<UserModle> findbyCondition(UserModle u);
 }

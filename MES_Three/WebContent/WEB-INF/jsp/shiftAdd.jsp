@@ -16,12 +16,9 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath }/res/time/jquery-ui.css" />
 <script type="text/javascript"
-	src="${pageContext.request.contextPath }/res/js/jquery-3.3.1.min.js"></script>
-<script type="text/javascript"
 	src="${pageContext.request.contextPath }/res/time/jquery-ui.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath }/res/time/jquery-ui-timepicker-addon.js"></script>
-
 <title>Insert title here</title>
 <script type="text/javascript">
 	function emptyCheck() {
@@ -63,7 +60,8 @@
 				<td><input type="text" class="btn btn-default" name="shiftName"
 					id="shiftName" style="margin-left: 20px;"></td>
 			</tr>
-			<tr style="width: 85%;">
+			<tr></tr>
+			<tr>
 				<td>所属车间</td>
 				<td><select name="shopId" class="btn btn-default"
 					style="margin-left: 20px; margin-right: 30px;">
@@ -97,7 +95,9 @@
 			</tr>
 			<tr>
 				<td colspan="3"><input style="align-content: center;"
-					type="submit" value="保存" class="btn btn-default"></td>
+					type="submit" value="保存" class="btn btn-default btn-sm">&nbsp;&nbsp;
+					<input type="button" name="reback" class="btn btn-default btn-sm"
+					onclick="javascript:history.back(-1);" value="返回"></td>
 			</tr>
 		</table>
 	</form>

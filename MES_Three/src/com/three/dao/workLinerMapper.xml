@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.three.dao.WorkLinerDao">
+	<insert id="add" parameterType="com.three.model.WorkLinerModel">
+		<if test="linerId!=''">insert into
+			sysworkliner(linerId,linerName,linerAdmin,shopId)values(#{linerId},#{linerName},#{linerAdmin},#{shopId})
+		</if>
+		<if test="linerId==''">insert into
+			sysworkliner(linerName,linerAdmin,shopId)values(#{linerName},#{linerAdmin},#{shopId})
+		</if>
+	</insert>
+
+	<delete id="delete">
+		delete from sysworkliner where
+		linerId=#{linerId};
+	</delete>
+
+	<update id="update"
+		parameterType="com.three.model.WorkLinerModel">
+		update sysworkliner set
+		linerName=#{linerName},linerAdmin=#{linerAdmin},shopId=#{shopId}
+		where
+		linerId = #{linerId}
+	</update>
+
+
+	<select id="findById"
+		resultType="com.three.model.WorkLinerModel">
+		select * from sysworkliner
+		where linerId=#{linerId}
+	</select>
+
+	<select id="findByCondition"
+		resultType="com.three.model.WorkLinerModel">
+		select * from sysworkliner
+		<where>
+			<if test="shopId!=0">and shopId=#{shopId}</if>
+			<if test="linerName!='' and linerName != null"> and linerName=#{linerName}</if>
+			<if test="linerAdmin!='' and linerAdmin != null"> and linerAdmin=#{linerAdmin}</if>
+		</where>
+	</select>
+
+	<select id="findAll" resultType="com.three.model.WorkLinerModel">
+		select * from sysworkliner
+	</select>
+
+</mapper>

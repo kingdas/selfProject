@@ -28,7 +28,7 @@ div {
 </style>
 </head>
 <body>
-	<form action="${pageContext.request.contextPath}/product/doadd"
+	<form action="${pageContext.request.contextPath}/product/doAdd"
 		method="post">
 		<div class="text-uppercase" class="div">
 			<center>
@@ -84,7 +84,9 @@ div {
 				</tr>
 				<tr class="text-uppercase">
 					<td colspan="2" class="td" align="center"><input type="submit"
-						value="保存" class="form-control" /></td>
+						value="确认" class="btn btn-default btn-sm" />&nbsp;&nbsp;<input
+						type="button" name="reback" class="btn btn-default btn-sm"
+						onclick="javascript:history.back(-1);" value="返回"></td>
 				</tr>
 			</table>
 		</div>

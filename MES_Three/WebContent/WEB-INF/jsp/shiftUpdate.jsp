@@ -65,7 +65,9 @@
 				</tr>
 				<tr>
 					<td colspan="3"><input style="align-content: center;"
-						type="submit" value="保存" class="btn btn-default"></td>
+						type="submit" value="保存" class="btn btn-default btn-sm">&nbsp;&nbsp;
+						<input type="button" name="reback" class="btn btn-default btn-sm"
+						onclick="javascript:history.back(-1);" value="返回"></td>
 				</tr>
 			</table>
 		</form>

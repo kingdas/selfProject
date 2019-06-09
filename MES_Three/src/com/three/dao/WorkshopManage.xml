@@ -37,13 +37,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from sysworkshop
 	</select>
 	<select id="findByCondition"
-		parameterType="com.three.model.WorkshopManageModel"
 		resultType="com.three.model.WorkshopManageModel">
 		select * from sysworkshop where 1=1
 		<if test="shopId!='' and shopId!=null"> and shopId=#{shopId} </if>
 		<if test="shopId =='' or shopId==null">
-			<if test="shopName!='' and shopName!=null">and shopName=#{shopName} </if>
-			<if test="shopAdmin!='' and shopAdmin!=null">and shopAdmin like concat(concat('%',#{shopAdmin}),'%')
+			<if test="shopName!='' and shopName!=null">and shopName like concat('%',#{shopName},'%') </if>
+			<if test="shopAdmin!='' and shopAdmin!=null">and shopAdmin like concat('%',#{shopAdmin},'%')
 			</if>
 		</if>
 	</select>

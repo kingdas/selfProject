@@ -35,21 +35,17 @@ public class WorkshopManageModel {
 	}
 
 	public WorkshopManageModel(int shopId, String shopName, String shopAdmin) {
-		super();
 		this.shopId = shopId;
 		this.shopName = shopName;
 		this.shopAdmin = shopAdmin;
 	}
 
 	public WorkshopManageModel(String shopName, String shopAdmin) {
-		super();
 		this.shopName = shopName;
 		this.shopAdmin = shopAdmin;
 	}
 
 	public WorkshopManageModel() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
 }

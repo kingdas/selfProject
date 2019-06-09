@@ -108,46 +108,7 @@ a {
 		</button>
 	</form>
 
-	<%-- <div>
-		<form action="${pageContext.request.contextPath }/shift/search"
-			method="post">
-			<table style="margin: 30px; margin-left: 20px; width: 80%;">
-				<tr>
-					<td>所属车间</td>
-					<td><select name="shopId" class="btn btn-default">
-							<option value="-1">请选择</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-					</select></td>
-					<td>所属产线</td>
-					<td><select name="linerId" class="btn btn-default"
-						style="margin: 20px; margin-right: 30px;">
-							<option value="-1">请选择</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-					</select></td>
-					<td>所属工位</td>
-					<td><select name="placeId" class="btn btn-default"
-						style="margin: 20px;">
-							<option value="-1">请选择</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-					</select></td>
-				</tr>
-				<tr>
-					<td>班次名称</td>
-					<td><input type="text" name="shiftName"
-						class="btn btn-default" style="margin: 20px;"></td>
-					<td><button class="btn btn-default" type="submit">
-							<span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;&nbsp;查询&nbsp;
-						</button></td>
-				</tr>
-			</table>
-		</form>
-	</div> --%>
+
 	<hr style="color: black; size: 5px;" />
 	<!-- 增删查改 -->
 	<div style="margin: 20px; margin-left: 30px;">
@@ -185,10 +146,10 @@ a {
 					<td>${s.shopId }</td>
 					<td>${s.linerId }</td>
 					<td>${s.placeId }</td>
-					<td class="upd"><a
+					<td class="upd"><a class="btn btn-default btn-xs"
 						href="${pageContext.request.contextPath }/shift/update/${s.shiftId}">修改</a></td>
 					<td class="del"><a id="delConfirm" href="#"
-						onclick="delConfirm(${s.shiftId})">删除</a></td>
+						class="btn btn-default btn-xs" onclick="delConfirm(${s.shiftId})">删除</a></td>
 				</tr>
 			</c:forEach>
 		</table>
